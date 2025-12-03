@@ -305,7 +305,7 @@ FROM DISK = 'C:\Backups\UniversityDB_2025_12_03.bak';
 
 ## 📱 Łączenie z aplikacją ASP.NET
 
-Po konfiguracji bazy, Twój kolega może pracować nad aplikacją.
+Po konfiguracji bazy, można pracować nad aplikacją.
 
 ### Connection String dla C#
 
