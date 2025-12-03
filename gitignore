@@ -1,0 +1,272 @@
+# ========================================
+# .gitignore - ASP_PROJECT
+# ========================================
+# Pliki i foldery do ignorowania w Git
+
+# ========== SQL Server ==========
+# Backup files
+*.bak
+*.trn
+*.log
+
+# SQL Server user-instance folders
+SQLSERVER/
+mdf_file/
+ndf_file/
+
+# ========== Visual Studio ==========
+## Ignoruj foldery buildów
+bin/
+obj/
+.vs/
+.vscode/
+
+## Ignoruj pliki użytkownika
+*.sln.user
+*.suo
+*.user
+*.userosscache
+*.ldf
+
+## Pliki generowane przez Visual Studio
+Generated_Code/
+packages/
+
+# ========== Entity Framework ==========
+Migrations/
+*.edmx
+*.edmx.diagram
+
+# ========== ASP.NET ==========
+App_Data/
+App_Start/
+aspnet_client/
+ClientBin/
+Content/
+csx/
+ecf/
+packages/
+publish/
+Web.Debug.config
+Web.Release.config
+PublishProfiles/
+
+# ========== Node.js (jeśli używasz npm/webpack) ==========
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# ========== IDE Settings ==========
+.idea/
+.project
+.classpath
+*.swp
+*.swo
+*~
+.DS_Store
+
+# ========== Logi ==========
+logs/
+*.log
+*.logs
+
+# ========== Zmienne konfiguracyjne ==========
+.env
+.env.local
+.env.*.local
+config/secrets.json
+appsettings.Development.json
+
+# ========== Pliki tymczasowe ==========
+tmp/
+temp/
+*.tmp
+*.temp
+
+# ========== System files ==========
+Thumbs.db
+.DS_Store
+.directory
+
+# ========== NuGet ==========
+.nuget/
+*.nupkg
+*.snupkg
+
+# ========== SSMS Backup files ==========
+Database/Backups/*.bak
+Database/Backups/*.bkp
+
+# ========== Duże pliki ==========
+*.zip
+*.rar
+*.7z
+*.iso
+
+# ========== Credentials (NIGDY nie wrzucaj!) ==========
+connection_strings.json
+database_config.js
+secrets.json
+credentials.txt
+
+# ========== Build results ==========
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Ww][Ii][Nn]32/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+
+# ========== Rider IDE ==========
+.idea/
+*.sln.iml
+*.DotSettings.user
+
+# ========== Windows ==========
+# Windows thumbnail cache files
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs.db:encryptable
+
+# Windows Folder Config
+Desktop.ini
+
+# Windows shortcuts
+*.lnk
+
+# ========== Mac ==========
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# ========== Linux ==========
+.directory
+
+# ========== Python (jeśli jest skrypt do testów) ==========
+*.py[cod]
+*$py.class
+__pycache__/
+venv/
+ENV/
+
+# ========== SQL Profiles ==========
+*.sqlproj.user
+
+# ========== Foldery lokalnych konfiguracji ==========
+LocalConfig/
+local/
+dev/
+
+# ========== Visual Studio Code settings ==========
+.vscode/settings.json
+.vscode/tasks.json
+.vscode/launch.json
+
+# ========== DLL files ==========
+*.dll
+*.so
+*.dylib
+
+# ========== Executable files ==========
+*.exe
+*.com
+*.bat
+*.cmd
+
+# ========== Certificate files (WAŻNE!) ==========
+*.pem
+*.pfx
+*.p12
+*.crt
+*.key
+
+# ========== Docker (jeśli używasz) ==========
+.dockerignore
+docker-compose.override.yml
+
+# ========== Profiler results ==========
+*.psess
+*.vsp
+*.vspx
+
+# ========== OpenCover coverage results ==========
+OpenCover/
+
+# ========== NCrunch ==========
+_NCrunch_*
+.*crunch*.local.xml
+
+# ========== MightyMoose ==========
+*.mm.*
+AutoTest.Net/
+
+# ========== Web workbench (sass) ==========
+.sass-cache/
+
+# ========== Fody - auto-generated ==========
+FodyWeavers.xsd
+
+# ========== Coverage ==========
+coverage/
+.coverage
+htmlcov/
+
+# ========== Report files (z testów) ==========
+TestResults/
+
+# ========== Exclude z testów ==========
+*.trx
+
+# ========== Resharper files ==========
+_ReSharper*/
+*.DotSettings
+
+# ========== NuGet Restore ==========
+.nuget/
+
+# ========== StyleCop results ==========
+StyleCopReport.xml
+
+# ========== Installers ==========
+*.msi
+*.msix
+*.msm
+*.msp
+
+# ========== Installers - Delete this template ==========
+*.cabinet
+*.msu
+
+# ========== BizTalk build output ==========
+*.btp.cs
+*.btm.cs
+*.odx.cs
+*.xsd.cs
+
+# ========== OpenGL Native Shader Compiler ==========
+*.FXP
+
+# ========== Locally stored "Eclipse launch configurations" ==========
+*.launch
+
+# ========== Pyre type checker ==========
+.pyre/
+
+# ========== Pliki do ignorowania z folderu Database ==========
+Database/Backups/*.bak
+Database/Backups/*.sql
+Database/Backups/!.gitkeep
+
+# ========== ApplicationCode - jeszcze nie ma ==========
+ApplicationCode/bin/
+ApplicationCode/obj/
+ApplicationCode/.vs/

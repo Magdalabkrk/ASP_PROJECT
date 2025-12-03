@@ -1,0 +1,313 @@
+# 🎓 ASP_PROJECT - System Zarządzania Uniwersytetem
+
+> Aplikacja do kompleksowego zarządzania uniwersytetem - studentami, pracownikami, ocenami, zajęciami i finansami.
+
+## 📋 Spis treści
+
+- [O projekcie](#o-projekcie)
+- [Technologia](#technologia)
+- [Struktura projektu](#struktura-projektu)
+- [Instalacja bazy danych](#instalacja-bazy-danych)
+- [Schemat bazy](#schemat-bazy)
+- [Użytkownicy testowi](#użytkownicy-testowi)
+- [API dokumentacja](#api-dokumentacja)
+- [Contributing](#contributing)
+- [Licencja](#licencja)
+
+---
+
+## 📖 O projekcie
+
+**ASP_PROJECT** to zaawansowany system zarządzania uniwersytetem zbudowany na platformie ASP.NET z bazą danych SQL Server. System wspiera:
+
+✅ Zarządzanie studentami i pracownikami
+✅ Rejestracja zajęć i modułów edukacyjnych
+✅ Śledzenie ocen i frekwencji
+✅ Zarządzanie płatnościami czesnego
+✅ Generowanie raportów akademickich
+✅ Ogłoszenia dla studentów
+✅ Zarządzanie sylabuami przedmiotów
+
+---
+
+## 🛠️ Technologia
+
+| Warstwa | Technologia |
+|---------|------------|
+| **Backend** | ASP.NET (C#) |
+| **Baza danych** | SQL Server 2019+ |
+| **Język skryptów DB** | T-SQL |
+| **Wersja .NET** | .NET Framework / .NET 6+ |
+| **IDE** | Visual Studio 2019+ |
+| **Version Control** | Git / GitHub |
+
+---
+
+## 📁 Struktura projektu
+
+```
+ASP_PROJECT/
+├── 📂 Database/
+│   ├── 📄 Scripts/
+│   │   ├── 1_create_database_FIXED_GO.sql      ← Tabele + triggery + indeksy
+│   │   ├── 2_create_views.sql                  ← 5 gotowych views
+│   │   ├── 3_insert_sample_FINAL.sql           ← Dane testowe
+│   │   └── 4_stored_procedures.sql             (przyszłość)
+│   │
+│   ├── 📄 Documentation/
+│   │   ├── SCHEMA.md                           ← Diagram bazy
+│   │   ├── SETUP.md                            ← Instrukcja instalacji
+│   │   └── QUERIES.md                          ← Przydatne zapytania
+│   │
+│   └── 📄 Backups/
+│       └── university_backup.bak               (po konfiguracji)
+│
+├── 📂 ApplicationCode/
+│   ├── 📂 Controllers/
+│   ├── 📂 Models/
+│   ├── 📂 Views/
+│   └── README.md                               ← Kod będzie dodany przez innego dewelopera
+│
+├── 📄 README.md                                ← Ten plik!
+├── 📄 .gitignore
+├── 📄 CONTRIBUTING.md
+└── 📄 LICENSE
+```
+
+---
+
+## ⚙️ Instalacja bazy danych
+
+### Wymagania wstępne
+- **SQL Server 2019** lub nowszy
+- **SQL Server Management Studio (SSMS) 18+**
+- **Git**
+- Dostęp do linii poleceń PowerShell lub CMD
+
+### Krok 1: Sklonuj repozytorium
+
+```bash
+git clone https://github.com/Magdalabrkrk/ASP_PROJECT.git
+cd ASP_PROJECT
+```
+
+### Krok 2: Otwórz skrypty w SSMS
+
+1. Otwórz **SQL Server Management Studio**
+2. Połącz się z lokalnym serwerem (`(local)` lub `.\SQLEXPRESS`)
+3. W Object Explorerze kliknij **New Query**
+
+### Krok 3: Uruchom skrypty w kolejności
+
+**Krok 3a: Utwórz bazę + tabele + triggery**
+```
+File → Open → Database/Scripts/1_create_database_FIXED_GO.sql
+Ctrl+Shift+E
+```
+✅ Status: Baza `UniversityDB` utworzona
+
+**Krok 3b: Dodaj widoki**
+```
+File → Open → Database/Scripts/2_create_views.sql
+Ctrl+Shift+E
+```
+✅ Status: 5 views dodanych
+
+**Krok 3c: Załaduj dane testowe**
+```
+File → Open → Database/Scripts/3_insert_sample_FINAL.sql
+Ctrl+Shift+E
+```
+✅ Status: 100+ rekordów załadowanych
+
+### Krok 4: Weryfikacja
+
+```sql
+-- Test 1: Sprawdź liczbę studentów
+SELECT COUNT(*) AS liczba_studentow FROM STUDENTS;
+-- Powinno być: 4 ✅
+
+-- Test 2: Sprawdź oceny
+SELECT COUNT(*) AS liczba_ocen FROM STUDENT_GRADES;
+-- Powinno być: 5 ✅
+
+-- Test 3: Sprawdź plan zajęć
+SELECT * FROM vw_student_schedule WHERE student_id = 1;
+-- Powinno zwrócić wyniki ✅
+```
+
+---
+
+## 👥 Użytkownicy testowi
+
+### Studenci
+
+| Login | Hasło | Grupa | Status |
+|-------|-------|-------|--------|
+| jan.kowalski | Haslo123! | Grupa 1A - Informatyka | ✅ Aktywny |
+| maria.nowak | Haslo123! | Grupa 2A - Informatyka | ✅ Aktywny |
+| piotr.wisniewski | Haslo123! | Grupa 1A - Informatyka | ✅ Aktywny |
+| anna.krol | Haslo123! | Grupa 2B - Matematyka | ✅ Aktywny |
+
+### Pracownicy / Wykładowcy
+
+| Login | Hasło | Stanowisko | Wydział |
+|-------|-------|-----------|---------|
+| anna.smith | Haslo123! | Dr | Informatyka |
+| zbigniew.kuchta | Haslo123! | Prof | Informatyka |
+| katarzyna.lewandowska | Haslo123! | Dr | Matematyka |
+
+**Hasło (SHA2_256):**
+```
+a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3
+```
+
+---
+
+## 📊 Schemat bazy
+
+Baza zawiera **18 tabel** z relacjami:
+
+```
+USERS (studenci i pracownicy)
+├── STUDENTS
+│   ├── STUDENTS_MODULE_INSTANCES (frekwencja)
+│   ├── STUDENT_GRADES (oceny)
+│   └── TUITIONS (czesne)
+│
+├── EMPLOYEES
+│   └── LECTURERS (wykładowcy)
+│
+ROLES (role użytkowników)
+
+DEPARTMENTS (wydziały)
+└── MODULES (przedmioty)
+    ├── LECTURERS
+    ├── GROUP_MODULES
+    └── MODULE_INSTANCES (konkretne zajęcia)
+        └── STUDENTS_MODULE_INSTANCES
+
+GROUPS (grupy laboratoryjna)
+
+ACADEMIC_YEARS (lata akademickie)
+
+GRADES (skale ocen)
+GRADE_TYPES (typy ocen: egzamin, zaliczenie, etc.)
+
+SYLLABUSES (sylabusy przedmiotów)
+
+ANNOUNCEMENTS (ogłoszenia)
+```
+
+**Szczegółowy schemat:** [SCHEMA.md](Database/Documentation/SCHEMA.md)
+
+---
+
+## 📈 Dostępne Views (Widoki)
+
+| View | Opis |
+|------|------|
+| `vw_student_grades_summary` | Szczegółowe oceny studenta z wszystkimi informacjami |
+| `vw_student_schedule` | Plan zajęć studenta z informacją o frekwencji |
+| `vw_student_grades_avg` | Średnie oceny na poszczególne przedmioty |
+| `vw_student_attendance` | Procentowa frekwencja studenta |
+| `vw_student_tuition_status` | Status opłacenia czesnego (opłacone/zaległa/czekające) |
+
+**Przykład użycia:**
+```sql
+-- Pokaż oceny studenta Jan Kowalski
+SELECT * FROM vw_student_grades_summary WHERE student_id = 1;
+
+-- Pokaż plan zajęć
+SELECT * FROM vw_student_schedule WHERE student_id = 1;
+
+-- Pokaż frekwencję
+SELECT * FROM vw_student_attendance WHERE student_id = 1;
+```
+
+---
+
+## 🔧 Triggery (Automatyzacja)
+
+Baza zawiera 3 triggery:
+
+1. **trg_audit_users_changes** - Log zmian w tabeli USERS
+2. **trg_check_grade_value** - Walidacja wartości ocen
+3. **trg_tuition_payment_update** - Aktualizacja statusu płatności
+
+---
+
+## 🚀 Dalszy rozwój
+
+### Funkcjonalności do implementacji w kodzie ASP.NET:
+
+- [ ] Autoryzacja i autentykacja użytkowników
+- [ ] CRUD operacje dla studentów
+- [ ] CRUD operacje dla pracowników
+- [ ] Rejestracja na przedmioty
+- [ ] Wgrywanie ocen
+- [ ] Generowanie świadectw
+- [ ] System powiadomień
+- [ ] Export raportów do PDF
+- [ ] Integracja z emailem
+
+---
+
+## 📚 Dodatkowe zasoby
+
+| Dokument | Opis |
+|----------|------|
+| [SETUP.md](Database/Documentation/SETUP.md) | Krok po kroku instalacja bazy |
+| [SCHEMA.md](Database/Documentation/SCHEMA.md) | Pełny schemat bazy danych |
+| [QUERIES.md](Database/Documentation/QUERIES.md) | Przydatne zapytania SQL |
+
+---
+
+## 🤝 Współpraca (Contributing)
+
+Jeśli chcesz wnieść wkład:
+
+1. Utwórz nową gałąź (`git checkout -b feature/nova-funkcjonalnosc`)
+2. Commituj zmiany (`git commit -m 'Dodaj nową funkcjonalność'`)
+3. Wypchnij gałąź (`git push origin feature/nova-funkcjonalnosc`)
+4. Otwórz Pull Request
+
+Więcej w [CONTRIBUTING.md](CONTRIBUTING.md)
+
+---
+
+## 📝 Licencja
+
+Projekt licencjonowany na warunkach licencji **MIT**. Zobacz [LICENSE](LICENSE) aby dowiedzieć się więcej.
+
+---
+
+## 👤 Autor
+
+**Magdalena T.**
+- GitHub: [@Magdalabrkrk](https://github.com/Magdalabrkrk)
+- Email: magdalena.tomczak@microsoft.wsei.edu.pl
+
+---
+
+## ❓ FAQ
+
+**P: Czy mogę modyfikować schemat bazy?**
+O: Tak! Pamiętaj aby aktualizować dokumentację w `SCHEMA.md`
+
+**P: Gdzie dodać nowe tabele?**
+O: Utwórz nowy plik SQL w `Database/Scripts/` i zmerguj z głównym skryptem tworzenia
+
+**P: Jak zrobić backup bazy?**
+O: SSMS → Database → Tasks → Back Up... (lub `BACKUP DATABASE` w skrypcie)
+
+**P: Kod aplikacji gdzie?**
+O: Aplikacja ASP.NET będzie w folderze `ApplicationCode/` - został zarezerwowany dla innego dewelopera
+
+---
+
+**Ostatnia aktualizacja:** 3 grudnia 2025
+**Wersja:** 1.0.0
+**Status:** ✅ Baza danych gotowa do integracji z aplikacją
+
+⭐ Jeśli projekt Ci się podoba, nie zapomnij dać gwiazdy na GitHubie!
