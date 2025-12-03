@@ -69,7 +69,7 @@ ASP_PROJECT/
 │   ├── 📂 Controllers/
 │   ├── 📂 Models/
 │   ├── 📂 Views/
-│   └── README.md                               ← Kod będzie dodany przez innego dewelopera
+│   └── README.md                               
 │
 ├── 📄 README.md                                ← Ten plik!
 ├── 📄 .gitignore
@@ -94,7 +94,7 @@ ASP_PROJECT/
 
 | Dokument | Opis |
 |----------|------|
-| **[VIEWS_MAP.md](Database/Documentation/VIEWS_MAP.md)** | 📱 **NOWE!** Kompletna mapa widoków aplikacji |
+| **[VIEWS_MAP.md](Database/Documentation/VIEWS_MAP.md)** | 📱 Kompletna mapa widoków aplikacji |
 
 ---
 
@@ -365,7 +365,7 @@ O: SSMS → Database → Tasks → Back Up... (lub `BACKUP DATABASE` w skrypcie)
 O: Zobacz [VIEWS_MAP.md](Database/Documentation/VIEWS_MAP.md) - zawiera kompletną mapę z priorytetami
 
 **P: Kod aplikacji gdzie?**  
-O: Aplikacja ASP.NET będzie w folderze `ApplicationCode/` - został zarezerwowany dla innego dewelopera
+O: Aplikacja ASP.NET będzie w folderze `ApplicationCode/` 
 
 ---
 
@@ -373,4 +373,3 @@ O: Aplikacja ASP.NET będzie w folderze `ApplicationCode/` - został zarezerwowa
 **Wersja:** 1.1.0  
 **Status:** ✅ Baza danych gotowa + 📱 Mapa widoków gotowa do integracji z aplikacją
 
-⭐ Jeśli projekt Ci się podoba, nie zapomnij dać gwiazdy na GitHubie!
