@@ -344,9 +344,12 @@ Projekt licencjonowany na warunkach licencji **MIT**. Zobacz [LICENSE](LICENSE) 
 
 ## 👤 Autor
 
-**Magdalena B.**
+**Magdalena T.**
 - GitHub: [@Magdalabrkrk](https://github.com/Magdalabrkrk)
-- Email: kontakt@example.com
+- Email: magdalena.tomczak@microsoft.wsei.edu.pl
+**Tomasz P.**
+**Kamil M.**
+**Patryja S.**
 
 ---
 
