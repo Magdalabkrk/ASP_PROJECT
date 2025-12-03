@@ -64,7 +64,7 @@ ASP_PROJECT/
 │       ├── 📄 .gitkeep                   (pusty folder w Git)
 │       └── ℹ️ Dodaj tutaj pliki .bak z regularnym backupem
 │
-├── 📂 ApplicationCode/                    ⭐ KOD ASP.NET (INNY DEVELOPER)
+├── 📂 ApplicationCode/                    ⭐ KOD ASP.NET
 │   │
 │   ├── 📂 Controllers/
 │   │   ├── 📄 HomeController.cs
@@ -203,7 +203,7 @@ ASP_PROJECT/
 
 ---
 
-### 💻 ApplicationCode/ - **KOD ASP.NET** (Drugi developer)
+### 💻 ApplicationCode/ - **KOD ASP.NET**
 
 | Folder | Przeznaczenie |
 |--------|--------------|
@@ -213,7 +213,7 @@ ASP_PROJECT/
 | `Services/` | Warstawa serwisów (biznesowa logika) |
 | `Security/` | Autentykacja, autoryzacja |
 
-**Status:** ⏳ **DO WYKONANIA** - będzie pracować inny developer
+**Status:** ⏳ **DO WYKONANIA**
 
 ---
 
@@ -228,7 +228,7 @@ ASP_PROJECT/
 
 ---
 
-## 🎯 Workflow dla projektanta (Ciebie)
+## 🎯 Workflow dla projektanta
 
 ```
 ┌─────────────────────────────────────────┐
@@ -252,7 +252,7 @@ ASP_PROJECT/
 └─────────────────────────────────────────┘
 ```
 
-## 🎯 Workflow dla developera ASP.NET (Drugi developer)
+## 🎯 Workflow dla developera ASP.NET 
 
 ```
 ┌─────────────────────────────────────────┐
